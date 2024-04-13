@@ -13,7 +13,7 @@ function Login() {
 
     // AJAX request using jQuery
     $.ajax({
-      url: 'http://react.noble-mutuwa.com/:8000/api/v1/auth/login',
+      url: 'http://noble-mutuwa.com:8000/api/v1/auth/login',
       method: 'POST',
       contentType: 'application/json',
       data: JSON.stringify({ username, password }),
