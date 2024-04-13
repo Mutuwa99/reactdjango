@@ -77,7 +77,8 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 ALLOWED_HOSTS = ['*']
 
 CORS_ALLOWED_ORIGINS = [
-    "http://react.noble-mutuwa.com:3000", 
+    "http://react.noble-mutuwa.com", 
+    "http://noble-mutuwa.com:3000", 
     # Add more origins if needed
 ]
 
