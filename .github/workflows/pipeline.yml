@@ -127,7 +127,7 @@ jobs:
 
       - name: Build Noble Django Docker Image
         run: |
-          docker build -t ${registry}/${DOCKERHUB_USERNAME}/${imagename}:${imageTag} ./frontend/.
+          docker build -t ${registry}/${DOCKERHUB_USERNAME}/${imagename}:${imageTag} ./frontend1/.
 
       - name: Push Docker Image to Docker Hub
         run: |
