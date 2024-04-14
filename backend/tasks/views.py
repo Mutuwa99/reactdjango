@@ -45,7 +45,7 @@ def dashboard_data(request):
 
         try:
             data = Task.objects.all()
-            cleaned_data = list(data.values)
+            cleaned_data = list(data.values())
 
             completed = Task.objects.filter(status = 'Completed').count()
             inprogress = Task.objects.filter(status = 'InProgress').count()
@@ -71,7 +71,7 @@ def fetch_completed(request):
 
         try:
             completed = Task.objects.filter(status = 'Completed')
-            cleaned_data = list(completed.values)
+            cleaned_data = list(completed.values())
 
             return JsonResponse({'sucess': True, 'completed': cleaned_data})
         except Exception as e:
@@ -86,7 +86,7 @@ def fetch_assigned(request):
 
         try:
             assigned = Task.objects.filter(status = 'Assigned')
-            cleaned_data = list(assigned.values)
+            cleaned_data = list(assigned.values())
 
             return JsonResponse({'sucess': True, 'assigned': cleaned_data})
         except Exception as e:
@@ -100,7 +100,7 @@ def fetch_inprogress(request):
 
         try:
             inprogress = Task.objects.filter(status = 'InProgress')
-            cleaned_data = list(inprogress.values)
+            cleaned_data = list(inprogress.values())
 
             return JsonResponse({'sucess': True, 'inprogress': cleaned_data})
         except Exception as e:
