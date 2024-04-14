@@ -58,7 +58,7 @@ def dashboard_data(request):
 
             }
 
-            return JavaScript({"success": True, "data": cleaned_data, 'stats':stats})
+            return JsonResponse({"success": True, "data": cleaned_data, 'stats':stats})
 
         except Exception as e:
             return JsonResponse({'success': False, 'error': str(e)},status=400)
