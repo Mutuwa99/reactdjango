@@ -76,7 +76,7 @@ def fetch_completed(request):
             return JsonResponse({'sucess': True, 'completed': cleaned_data})
         except Exception as e:
             return JsonResponse({'success': False, 'error': str(e)},status=400)
-    else
+    else:
         return JsonResponse({'success': False , 'error': 'method not allowed'})
 
 
@@ -91,7 +91,7 @@ def fetch_assigned(request):
             return JsonResponse({'sucess': True, 'assigned': cleaned_data})
         except Exception as e:
             return JsonResponse({'success': False, 'error': str(e)},status=400)
-    else
+    else:
         return JsonResponse({'success': False , 'error': 'method not allowed'})
 
 @csrf_exempt
@@ -105,7 +105,7 @@ def fetch_inprogress(request):
             return JsonResponse({'sucess': True, 'inprogress': cleaned_data})
         except Exception as e:
             return JsonResponse({'success': False, 'error': str(e)},status=400)
-    else
+    else:
         return JsonResponse({'success': False , 'error': 'method not allowed'})
 
 
