@@ -431,8 +431,8 @@ h3:after {
 
   @media (max-width: 768px) {
     .view-container {
-      width:100% !important;
-      margin-left: 25px;
+      width:140% !important;
+      margin-left: 15px;
       padding: 7px;
       border:2px solid #fff;
       border-radius:20px

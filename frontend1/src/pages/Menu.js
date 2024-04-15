@@ -66,13 +66,15 @@ const Menu = () => {
       <div className="profile_content">
         <div className="profile">
           <div className="profile_details">
-            <img src="https://vz.cnwimg.com/wp-content/uploads/2014/01/alex.jpg?x86007" alt="" />
+            <img src="https://avatars.githubusercontent.com/u/110469709?v=4" alt="" />
             <div className="name_job">
-              <div className="name">Name</div>
-              <div className="job">Role</div>
+              <div className="name">Mutuwa</div>
+              <div className="job">owner</div>
             </div>
           </div>
-          <FontAwesomeIcon icon={faSignOutAlt} id="log_out" />
+          <Link to="/">
+           <FontAwesomeIcon icon={faSignOutAlt} id="log_out" />
+          </Link>
         </div>
       </div>
     </div>
