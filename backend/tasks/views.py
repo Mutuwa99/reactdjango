@@ -131,12 +131,12 @@ def create_tasks(request):
 
 
 @csrf_exempt
-def edit_task(request, id ):
+def save_edit_task(request, id ):
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
 
-            info = Task.objects.filter(id = id)
+            info = Task.objects.get(id = id)
 
       
             info.name=data.get('name'),
@@ -156,11 +156,22 @@ def edit_task(request, id ):
 
     
 
+@csrf_exempt
+def view_task(request, id):
+    if request.method =='POST':
+        try:
 
+            taskinfo = Task.objects.get(id = id)
 
+            taskcleaned = list(taskinfo.values())
 
+            return JsonResponse({'sucess': True, 'task':taskcleaned})
 
-
+        except Exception as e:
+            return JsonResponse({'success': False, 'error': str(e)}, status=400)
+    else:
+        return JsonResponse({'success': False, 'error': 'Method not allowed'}, status=405)
+            
 
 
             
