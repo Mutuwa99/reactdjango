@@ -26,10 +26,10 @@ const Menu = () => {
           <span className="tooltip">Search</span>
         </li> */}
         <li>
-          <a href="#">
+          <Link to="/dashboard">
             <FontAwesomeIcon className="icons" icon={faHome} /> <span></span>
             <span className="link_names">Dashboard</span>
-          </a>
+          </Link>
           <span className="tooltip">Dashboard</span>
         </li>
         <li>
@@ -40,11 +40,11 @@ const Menu = () => {
           <span className="tooltip">Dashboard</span>
         </li>
         <li>
-          <a href="#">
-            <FontAwesomeIcon className="icons" icon={faTh} /> <span></span>
-            <span className="link_names">Tasks</span>
-          </a>
-          <span className="tooltip">Tasks</span>
+          <Link to="/create">
+            <FontAwesomeIcon icon={faTh} />
+            <span className="link_names">Create</span>
+          </Link>
+          <span className="tooltip">Create</span>
         </li>
         <li>
           <a href="#">
