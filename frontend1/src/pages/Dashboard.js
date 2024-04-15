@@ -8,6 +8,7 @@ function Dashboard() {
 
     //fetch data
     const [tasks, setTasks] = useState([]);
+    const [stats, setStats] = useState([])
 
     // Function to fetch data from backend
     const fetchData = async () => {
@@ -27,7 +28,8 @@ function Dashboard() {
         }
         const data = await response.json();
         setTasks(data.data); // Assuming data is an array of tasks
-        console.log(data.data)
+        setStats(data.stats)
+        console.log("this is stats", data.stats)
       } catch (error) {
         console.error('Error fetching data:', error);
         // Handle error (e.g., show error message to user)
@@ -51,8 +53,8 @@ function Dashboard() {
                 <div class="icon">
                     <FontAwesomeIcon className="icons" icon={faHome} /> 
                 </div>
-                <p class="title">All TASKS</p>
-                <p class="text">Click to see or edit your profile page.</p>
+                <p class="title">All TASKS -  {stats.completed}</p>
+                <p class="text">Click to see all tasks.</p>
             </div>
         
         
@@ -60,8 +62,8 @@ function Dashboard() {
                 <div class="icon">
                     <FontAwesomeIcon className="icons" icon={faHome} /> 
                 </div>
-                <p class="title">Completed Taks</p>
-                <p class="text">Check all your favourites in one place.</p>
+                <p class="title">Completed Taks - {stats.inprogress}</p>
+                <p class="text">Check all your completed tasks</p>
             </div>
         
         
@@ -69,8 +71,8 @@ function Dashboard() {
                 <div class="icon">
                     <FontAwesomeIcon className="icons" icon={faHome} /> 
                 </div>
-                <p class="title">Assigned</p>
-                <p class="text">Add or change your contacts and links.</p>
+                <p class="title">Assigned - {stats.assigned} </p>
+                <p class="text">Check all your asssigned tasks.</p>
             </div>
 
         
@@ -85,29 +87,27 @@ function Dashboard() {
                     <th>Description</th>
                     <th>Story points</th>
                     <th>Created at</th>
-                    <th>Due Date</th>
                     <th>View</th>
                 </tr>
+                {tasks.map(task => (
                 <tr>
                     <td data-th="Supplier Code">
-                    UPS5005
-                    </td>
-                    <td data-th="Supplier Name">
-                    UPS
+                    {task.name}
                     </td>
                     <td data-th="Invoice Number">
-                    ASDF19218
+                    {task.description}
                     </td>
                     <td data-th="Invoice Date">
-                    06/25/2016
+                    {task.storypoint}
                     </td>
                     <td data-th="Due Date">
-                    12/25/2016
+                    {task.created_at}
                     </td>
                     <td data-th="Net Amount">
-                    $8,322.12
+                    view
                     </td>
                 </tr>
+                ))}
                 </tbody>
             </table>
             <h3>Resize Me</h3>
