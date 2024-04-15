@@ -5,6 +5,8 @@ from django.contrib.auth import authenticate,login
 from rest_framework.authtoken.models import Token
 from django.views.decorators.csrf import csrf_exempt
 from .models import Task 
+from django.contrib.auth.decorators import login_required
+
 
 @csrf_exempt
 def welcome(request):
@@ -93,7 +95,8 @@ def fetch_assigned(request):
             return JsonResponse({'success': False, 'error': str(e)},status=400)
     else:
         return JsonResponse({'success': False , 'error': 'method not allowed'})
-
+        
+@login_required
 @csrf_exempt
 def fetch_inprogress(request):
     if request.method == 'POST':
@@ -108,7 +111,7 @@ def fetch_inprogress(request):
     else:
         return JsonResponse({'success': False , 'error': 'method not allowed'})
 
-
+@login_required
 @csrf_exempt
 def create_tasks(request):
     if request.method == 'POST':
@@ -179,7 +182,24 @@ def view_task(request, id):
     else:
         return JsonResponse({'success': False, 'error': 'Method not allowed'}, status=405)
             
+@csrf_exempt
+def delete_task(request, id ):
 
+    if request.method =='POST':
+
+        try:
+
+            task  = Task.objects.get(id=id)
+            task.delete()
+
+            return JsonResponse({'success': True, 'task_id': task.id})
+
+        except Exception as e:
+            return JsonResponse({'success': False, 'error': str(e)}, status=400)
+    else:
+        return JsonResponse({'success': False, 'error': 'Method not allowed'}, status=405)
+
+            r
 
             
 
