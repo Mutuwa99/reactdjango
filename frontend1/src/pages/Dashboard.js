@@ -1,5 +1,6 @@
 import React from 'react';
 import Menu from './Menu';
+import React, { useState, useEffect } from 'react';
 import './Dashboard.css'; // CSS file for dashboard styles
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars,faHome ,faSearch, faTh, faUser, faComments, faChartPie, faFolder, faShoppingCart, faHeart, faCog, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
