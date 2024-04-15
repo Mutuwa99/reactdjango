@@ -199,7 +199,7 @@ def delete_task(request, id ):
     else:
         return JsonResponse({'success': False, 'error': 'Method not allowed'}, status=405)
 
-            r
+        
 
             
 
