@@ -49,7 +49,7 @@ def dashboard_data(request):
             data = Task.objects.all()
             cleaned_data = list(data.values())
 
-            completed = Task.objects.filter(status = 'Completed').count()
+            completed = Task.objects.filter(status = 'Complete').count()
             inprogress = Task.objects.filter(status = 'InProgress').count()
             assigned = Task.objects.filter(status = 'Assigned').count()
 
