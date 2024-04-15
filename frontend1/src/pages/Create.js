@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // import { useLocation } from 'react-router-dom';
-import Menu from './componenets/menu';
+import Menu from './Menu';
 // import { showToast } from './toast';
 import $ from 'jquery';
 
