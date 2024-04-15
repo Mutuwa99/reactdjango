@@ -96,7 +96,7 @@ def fetch_assigned(request):
     else:
         return JsonResponse({'success': False , 'error': 'method not allowed'})
         
-@login_required
+# @login_required
 @csrf_exempt
 def fetch_inprogress(request):
     if request.method == 'POST':
@@ -111,7 +111,7 @@ def fetch_inprogress(request):
     else:
         return JsonResponse({'success': False , 'error': 'method not allowed'})
 
-@login_required
+# @login_required
 @csrf_exempt
 def create_tasks(request):
     if request.method == 'POST':
