@@ -46,9 +46,9 @@ function Dashboard() {
     <div className="dashboard">
       <Menu></Menu>
       <main className="main-content">
-
+      <h4 className="tablehead1">Welcome</h4>
         <div class="content">
-        <h4 className="tablehead">Welcome</h4>
+        
             <div class="card">
                 <div class="icon">
                     <FontAwesomeIcon className="icons" icon={faHome} /> 

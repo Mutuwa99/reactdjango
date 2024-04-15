@@ -114,6 +114,13 @@
     margin-bottom: 10px;
     background-color: #000;
 }
+.tablehead1{
+  border: 2px #fff solid ;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  text-align: center !important;
+
+}
 
 @media screen and (max-width: 767px) {
   .content {
