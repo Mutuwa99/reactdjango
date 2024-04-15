@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Login.css';
 import $ from 'jquery'; // Import jQuery
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
+import { showToast } from '../components/toast';
 
 function Login() {
   const [username, setUsername] = useState('');
@@ -29,6 +30,7 @@ function Login() {
         } else {
           // Login failed
           console.error('Login failed:', data.error);
+          showToast('Opps, incorrect details.');
         }
       },
       error: function(xhr, status, error) {
