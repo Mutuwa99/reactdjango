@@ -28,11 +28,11 @@ function Create() {
             success: (response) => {
                 console.log('Response:', response);
                 
-                showToast('Success', 'Ticket created successfully');
+                // showToast('Success', 'Ticket created successfully');
             },
             error: (xhr, status, error) => {
                 console.error('Error:', error);
-                showToast('Error', 'Failed to create ticket');
+                // showToast('Error', 'Failed to create ticket');
             }
         });
     };
