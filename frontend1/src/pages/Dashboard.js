@@ -2,7 +2,7 @@ import Menu from './Menu';
 import React, { useState, useEffect } from 'react';
 import './Dashboard.css'; // CSS file for dashboard styles
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars,faHome ,faSearch, faTh, faUser, faComments, faChartPie, faFolder, faShoppingCart, faHeart, faCog, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faBars,faHome ,faEye, faSearch, faTh, faUser, faComments, faChartPie, faFolder, faShoppingCart, faHeart, faCog, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 
 function Dashboard() {
 
@@ -48,13 +48,13 @@ function Dashboard() {
       <main className="main-content">
 
         <div class="content">
-        
+        <h4 className="tablehead">Welcome</h4>
             <div class="card">
                 <div class="icon">
                     <FontAwesomeIcon className="icons" icon={faHome} /> 
                 </div>
-                <p class="title">All TASKS -  {stats.completed}</p>
-                <p class="text">Click to see all tasks.</p>
+                <p class="title">Completed -  {stats.completed}</p>
+                <p class="text">Click to see all completed tasks.</p>
             </div>
         
         
@@ -62,8 +62,8 @@ function Dashboard() {
                 <div class="icon">
                     <FontAwesomeIcon className="icons" icon={faHome} /> 
                 </div>
-                <p class="title">Completed Taks - {stats.inprogress}</p>
-                <p class="text">Check all your completed tasks</p>
+                <p class="title">Inprogress - {stats.inprogress}</p>
+                <p class="text">Check all your inprogress tasks</p>
             </div>
         
         
@@ -86,6 +86,7 @@ function Dashboard() {
                     <th>Name</th>
                     <th>Description</th>
                     <th>Story points</th>
+                    <th>Status</th>
                     <th>Created at</th>
                     <th>View</th>
                 </tr>
@@ -100,17 +101,19 @@ function Dashboard() {
                     <td data-th="Invoice Date">
                     {task.storypoint}
                     </td>
+                    <td data-th="Invoice Date">
+                    {task.status}
+                    </td>
                     <td data-th="Due Date">
                     {task.created_at}
                     </td>
-                    <td data-th="Net Amount">
-                    view
+                    <td data-th="Net Amount"> 
+                    <FontAwesomeIcon className="icons" icon={faEye} /> 
                     </td>
                 </tr>
                 ))}
                 </tbody>
             </table>
-            <h3>Resize Me</h3>
         </div>
 
       </main>
