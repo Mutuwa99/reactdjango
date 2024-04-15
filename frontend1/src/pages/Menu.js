@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars,faHome ,faSearch, faTh, faUser, faComments, faChartPie, faFolder, faShoppingCart, faHeart, faCog, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faBars,faPlus,faHome ,faSearch, faTh, faUser, faComments, faChartPie, faFolder, faShoppingCart, faHeart, faCog, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import './Menu.css';
 import { Link } from 'react-router-dom'; 
 
@@ -42,7 +42,7 @@ const Menu = () => {
         </li>
         <li>
           <Link to="/create">
-            <FontAwesomeIcon icon={faTh} />
+            <FontAwesomeIcon className="icons" icon={faPlus} />
             <span className="link_names">Create</span>
           </Link>
           <span className="tooltip">Create</span>
