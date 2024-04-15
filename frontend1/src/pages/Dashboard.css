@@ -137,6 +137,9 @@
     margin: 10px;
     padding-left: 30px !important;
   }
+  .tablehead1{
+    margin-left: 20px !important;
+  }
 }
 .card {
   width: 100%;

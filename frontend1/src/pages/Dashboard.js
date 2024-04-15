@@ -2,7 +2,7 @@ import Menu from './Menu';
 import React, { useState, useEffect } from 'react';
 import './Dashboard.css'; // CSS file for dashboard styles
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars,faHome ,faEye, faSearch, faTh, faUser, faComments, faChartPie, faFolder, faShoppingCart, faHeart, faCog, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faBars,faHome ,faUserPlus,faSpinner,faCheckCircle,faEye, faSearch, faTh, faUser, faComments, faChartPie, faFolder, faShoppingCart, faHeart, faCog, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 
 function Dashboard() {
 
@@ -51,7 +51,7 @@ function Dashboard() {
         
             <div class="card">
                 <div class="icon">
-                    <FontAwesomeIcon className="icons" icon={faHome} /> 
+                    <FontAwesomeIcon className="icons" icon={faCheckCircle} /> 
                 </div>
                 <p class="title">Completed -  {stats.completed}</p>
                 <p class="text">Click to see all completed tasks.</p>
@@ -60,7 +60,7 @@ function Dashboard() {
         
             <div class="card">
                 <div class="icon">
-                    <FontAwesomeIcon className="icons" icon={faHome} /> 
+                    <FontAwesomeIcon className="icons" icon={faSpinner} /> 
                 </div>
                 <p class="title">Inprogress - {stats.inprogress}</p>
                 <p class="text">Check all your inprogress tasks</p>
@@ -69,7 +69,7 @@ function Dashboard() {
         
             <div class="card">
                 <div class="icon">
-                    <FontAwesomeIcon className="icons" icon={faHome} /> 
+                    <FontAwesomeIcon className="icons" icon={faUserPlus} /> 
                 </div>
                 <p class="title">Assigned - {stats.assigned} </p>
                 <p class="text">Check all your asssigned tasks.</p>
