@@ -143,7 +143,6 @@ def save_edit_task(request, id ):
             info.description=data.get('description'),
             info.storypoint=data.get('storypoint'),
             info.status=data.get('status')
-        
 
             info.save()
 
@@ -161,11 +160,19 @@ def view_task(request, id):
     if request.method =='POST':
         try:
 
-            taskinfo = Task.objects.get(id = id)
+            task = Task.objects.get(id = id)
 
-            taskcleaned = list(taskinfo.values())
+            task_data = {
+                'id': task.id,
+                'name': task.name,
+                'description': task.description,
+                'storypoint': task.storypoint,
+                'status': task.status,
+                'created_at': task.created_at,
+                'updated_at': task.updated_at
+            }
 
-            return JsonResponse({'sucess': True, 'task':taskcleaned})
+            return JsonResponse({'sucess': True, 'task':task_data})
 
         except Exception as e:
             return JsonResponse({'success': False, 'error': str(e)}, status=400)
