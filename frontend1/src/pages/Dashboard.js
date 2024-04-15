@@ -1,4 +1,3 @@
-import React from 'react';
 import Menu from './Menu';
 import React, { useState, useEffect } from 'react';
 import './Dashboard.css'; // CSS file for dashboard styles
