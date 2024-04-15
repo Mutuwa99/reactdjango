@@ -6,7 +6,7 @@ export const showToast = (title, message) => {
         title: title,
         message: message,
         color: 'green', 
-        position: 'bottomRight',
+        position: 'topRight',
         backgroundColor: 'green', // Adding background color
         
     });
