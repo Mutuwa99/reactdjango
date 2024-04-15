@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Login.css';
 import $ from 'jquery'; // Import jQuery
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
-import { showToast } from '../components/toast';
+import { showToast } from './components/toast';
 
 function Login() {
   const [username, setUsername] = useState('');
