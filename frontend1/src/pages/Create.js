@@ -28,7 +28,7 @@ function Create() {
             success: (response) => {
                 console.log('Response:', response);
                 
-                showToast('Success', 'Ticket created successfully');
+                showToast('Success');
             },
             error: (xhr, status, error) => {
                 console.error('Error:', error);
