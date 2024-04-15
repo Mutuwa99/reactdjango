@@ -30,7 +30,7 @@ function Login() {
         } else {
           // Login failed
           console.error('Login failed:', data.error);
-          showToast('Opps, incorrect details.');
+        
         }
       },
       error: function(xhr, status, error) {
