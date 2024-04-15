@@ -92,22 +92,22 @@ function Dashboard() {
                 </tr>
                 {tasks.map(task => (
                 <tr>
-                    <td data-th="Supplier Code">
+                    <td data-th="Name">
                     {task.name}
                     </td>
-                    <td data-th="Invoice Number">
+                    <td data-th="Description">
                     {task.description}
                     </td>
-                    <td data-th="Invoice Date">
+                    <td data-th="Story Points">
                     {task.storypoint}
                     </td>
-                    <td data-th="Invoice Date">
+                    <td data-th="Status">
                     {task.status}
                     </td>
-                    <td data-th="Due Date">
+                    <td data-th="Created at">
                     {task.created_at}
                     </td>
-                    <td data-th="Net Amount"> 
+                    <td data-th="View"> 
                     <FontAwesomeIcon className="icons" icon={faEye} /> 
                     </td>
                 </tr>
