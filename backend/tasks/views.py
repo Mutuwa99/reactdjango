@@ -109,6 +109,57 @@ def fetch_inprogress(request):
         return JsonResponse({'success': False , 'error': 'method not allowed'})
 
 
+@csrf_exempt
+def create_tasks(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+
+            task = Task.objects.create(
+                name=data.get('name'),
+                description=data.get('description'),
+                storypoint=data.get('storypoint'),
+                status=data.get('status')
+            )
+
+            return JsonResponse({'success': True, 'task_id': task.id})
+        except Exception as e:
+            return JsonResponse({'success': False, 'error': str(e)}, status=400)
+    else:
+
+        return JsonResponse({'success': False, 'error': 'Method not allowed'}, status=405)
+
+
+@csrf_exempt
+def edit_task(request, id ):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+
+            info = Task.objects.filter(id = id)
+
+      
+            info.name=data.get('name'),
+            info.description=data.get('description'),
+            info.storypoint=data.get('storypoint'),
+            info.status=data.get('status')
+        
+
+            info.save()
+
+            return JsonResponse({'success': True, 'task_id': task.id})
+        except Exception as e:
+            return JsonResponse({'success': False, 'error': str(e)}, status=400)
+    else:
+
+        return JsonResponse({'success': False, 'error': 'Method not allowed'}, status=405)
+
+    
+
+
+
+
+
 
 
 
