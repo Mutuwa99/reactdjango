@@ -107,11 +107,11 @@ CORS_ALLOW_HEADERS = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tutorials',
+        'NAME': 'tet',
         'USER': 'mutuwa',
         'PASSWORD': 'mutuwa',
-        'HOST': 'react.noble-mutuwa.com',
-        'PORT': '5432' #default port for post
+        'HOST': 'noble-mutuwa.com',
+        'PORT': '6432' #default port for post
     }
 }
 
