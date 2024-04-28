@@ -6,8 +6,10 @@ from rest_framework.authtoken.models import Token
 from django.views.decorators.csrf import csrf_exempt
 from .models import Task 
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.cache import cache_page
 
 
+@cache_page(60 * 15)  # Cache for 15 minutes
 @csrf_exempt
 def welcome(request):
     if request.method == 'POST':
@@ -39,7 +41,7 @@ def welcome(request):
             return JsonResponse({'success': False , 'error': 'method not allowed'})
 
 
-
+@cache_page(60 * 15)  # Cache for 15 minutes
 @csrf_exempt
 def dashboard_data(request):
 
@@ -67,6 +69,7 @@ def dashboard_data(request):
     else:
         return JsonResponse({'success': False , 'error': 'method not allowed'})
 
+@cache_page(60 * 15)  # Cache for 15 minutes
 @csrf_exempt
 def fetch_completed(request):
     if request.method == 'POST':
@@ -96,7 +99,7 @@ def fetch_assigned(request):
     else:
         return JsonResponse({'success': False , 'error': 'method not allowed'})
         
-# @login_required
+@cache_page(60 * 15)  # Cache for 15 minutes
 @csrf_exempt
 def fetch_inprogress(request):
     if request.method == 'POST':
@@ -157,7 +160,7 @@ def save_edit_task(request, id ):
         return JsonResponse({'success': False, 'error': 'Method not allowed'}, status=405)
 
     
-
+@cache_page(60 * 15)  # Cache for 15 minutes
 @csrf_exempt
 def view_task(request, id):
     if request.method =='POST':
@@ -181,7 +184,8 @@ def view_task(request, id):
             return JsonResponse({'success': False, 'error': str(e)}, status=400)
     else:
         return JsonResponse({'success': False, 'error': 'Method not allowed'}, status=405)
-            
+
+@cache_page(60 * 15)  # Cache for 15 minutes           
 @csrf_exempt
 def delete_task(request, id ):
 
