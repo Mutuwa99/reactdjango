@@ -6,4 +6,5 @@ gunicorn
 requests
 sqlparse==0.2.4
 django-cors-headers==3.11.0
-redis
+django-redis
+
