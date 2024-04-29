@@ -7,6 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import Task 
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import cache_page
+from django.core.cache import cache
 
 
 @cache_page(60 * 15)  # Cache for 15 minutes
@@ -44,30 +45,42 @@ def welcome(request):
 @cache_page(60 * 15)  # Cache for 15 minutes
 @csrf_exempt
 def dashboard_data(request):
-
     if request.method == 'POST':
-
         try:
-            data = Task.objects.all()
-            cleaned_data = list(data.values())
+            # Check if data is cached
+            cached_data = cache.get('dashboard_data')
+            if cached_data is not None:
+                # If data is cached, return it
+                print("data from catch" )
+                return JsonResponse(cached_data)
 
-            completed = Task.objects.filter(status = 'Complete').count()
-            inprogress = Task.objects.filter(status = 'InProgress').count()
-            assigned = Task.objects.filter(status = 'Assigned').count()
+            else:
+                # If data is not cached, retrieve it from the database
+                data = Task.objects.all()
+                cleaned_data = list(data.values())
 
-            stats = {
-                'completed': completed,
-                'inprogress': inprogress,
-                'assigned': assigned
+                completed = Task.objects.filter(status='Complete').count()
+                inprogress = Task.objects.filter(status='InProgress').count()
+                assigned = Task.objects.filter(status='Assigned').count()
 
-            }
+                stats = {
+                    'completed': completed,
+                    'inprogress': inprogress,
+                    'assigned': assigned
+                }
 
-            return JsonResponse({"success": True, "data": cleaned_data, 'stats':stats})
+                response_data = {"success": True, "data": cleaned_data, 'stats': stats}
+                print("data from db")
+
+                # Cache the data for 15 minutes
+                cache.set('dashboard_data', response_data, 60 * 15)
+
+                return JsonResponse(response_data)
 
         except Exception as e:
-            return JsonResponse({'success': False, 'error': str(e)},status=400)
+            return JsonResponse({'success': False, 'error': str(e)}, status=400)
     else:
-        return JsonResponse({'success': False , 'error': 'method not allowed'})
+        return JsonResponse({'success': False, 'error': 'method not allowed'})
 
 @cache_page(60 * 15)  # Cache for 15 minutes
 @csrf_exempt
@@ -75,6 +88,8 @@ def fetch_completed(request):
     if request.method == 'POST':
 
         try:
+            
+            
             completed = Task.objects.filter(status = 'Completed')
             cleaned_data = list(completed.values())
 
