@@ -13,7 +13,7 @@ function Dashboard() {
     // Function to fetch data from backend
     const fetchData = async () => {
       try {
-        const response = await fetch('http://noble-mutuwa.com:8000/api/v1/data/all-data', {
+        const response = await fetch('https://noble-mutuwa.com:8000/api/v1/data/all-data', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
