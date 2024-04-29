@@ -119,7 +119,7 @@ DATABASES = {
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://54.234.162.1:6379/1',  # Change this to your Redis server location
+        'LOCATION': 'redis://noble-mutuwa.com:6379/1',  # Change this to your Redis server location
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         },
